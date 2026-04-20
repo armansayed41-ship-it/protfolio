@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sayed Arman, a Computer Science and Technology student, web learner, gamer, and content creator.">
+  <title>Sayed Arman | Portfolio</title>
+  <style>
+    :root {
+      --ink: #102019;
+      --muted: #5e6f67;
+      --paper: #f7fbf8;
+      --white: #ffffff;
+      --line: #d8e6df;
+      --green: #0e8f61;
+      --green-dark: #075c3d;
+      --coral: #dc4c3c;
+      --gold: #f1b93a;
+      --shadow: 0 18px 48px rgba(16, 32, 25, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      color: var(--green-dark);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 7px 11px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--green-dark);
+      background: #ecf7f1;
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      background: #0b1c15;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+      filter: saturate(1.04) contrast(1.03);
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(7, 24, 18, 0.88) 0%, rgba(7, 24, 18, 0.6) 46%, rgba(7, 24, 18, 0.12) 100%),
+        linear-gradient(0deg, rgba(7, 24, 18, 0.32) 0%, rgba(7, 24, 18, 0) 45%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      min-height: 460px;
+      padding: 56px 0;
+      color: var(--white);
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 14px;
+      padding: 6px 10px;
+      border-left: 4px solid var(--gold);
+      background: rgba(255, 255, 255, 0.11);
+      border-radius: 8px;
+      color: #fff7d7;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      font-size: 3.6rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 620px;
+      margin-bottom: 24px;
+      color: #edf8f1;
+      font-size: 1.15rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-tags li {
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 2px solid var(--white);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      outline: none;
+    }
+
+    main {
+      padding: 42px 0 54px;
+    }
+
+    .section {
+      margin-bottom: 46px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .section-header p {
+      max-width: 460px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--green-dark);
+      font-size: 1.8rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .story {
+      padding: 4px 0 4px 18px;
+      border-left: 5px solid var(--coral);
+      font-size: 1.05rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list li,
+    .timeline-item,
+    .project-card,
+    .skill-card,
+    .hobby-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(16, 32, 25, 0.07);
+    }
+
+    .contact-list li {
+      padding: 16px;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .value {
+      display: block;
+      margin-top: 3px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      padding: 20px;
+      border-left: 6px solid var(--green);
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .hobbies-grid {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hobbies-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .skill-card,
+    .project-card,
+    .hobby-card {
+      min-height: 100%;
+      padding: 18px;
+    }
+
+    .skill-card {
+      border-top: 5px solid var(--gold);
+    }
+
+    .project-card {
+      border-top: 5px solid var(--green);
+    }
+
+    .hobby-card {
+      border-top: 5px solid var(--coral);
+    }
+
+    .project-card p,
+    .skill-card p,
+    .hobby-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      background: var(--white);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer strong {
+      color: var(--green-dark);
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .hero-content {
+        min-height: 400px;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
+
+      .intro-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .hobbies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .nav-links a {
+        min-height: 36px;
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+
+      .hero,
+      .hero-content {
+        min-height: 360px;
+      }
+
+      .hero-content {
+        padding: 32px 0;
+      }
+
+      .hero-photo {
+        object-position: 58% 34%;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(7, 24, 18, 0.9) 0%, rgba(7, 24, 18, 0.62) 70%, rgba(7, 24, 18, 0.22) 100%),
+          linear-gradient(0deg, rgba(7, 24, 18, 0.34) 0%, rgba(7, 24, 18, 0) 48%);
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .actions a {
+        width: 100%;
+      }
+
+      .skills-grid,
+      .hobbies-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <nav class="page nav" aria-label="Main navigation">
+        <a class="brand" href="#">Sayed Arman</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="assets/sayed-arman-profile.jpeg" alt="Sayed Arman in formal college uniform outdoors">
+      <div class="page hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">CST Diploma Student</p>
+          <h1 id="hero-title">Sayed Arman</h1>
+          <p class="subtitle">I am learning web development, building my coding foundation, and creating gaming content with steady focus.</p>
+          <ul class="hero-tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Gaming Creator</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="mailto:armansayed41@email.com">Email Me</a>
+            <a class="button secondary" href="#projects">View Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main class="page">
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p>Curious, consistent, and always trying to get better.</p>
+      </div>
+      <div class="intro-grid">
+        <div class="story">
+          <p>
+            Hi, I am Sayed Arman, a first-year diploma student in Computer Science and Technology. I enjoy learning how websites work, turning ideas into small projects, and improving my skills one step at a time.
+          </p>
+          <p>
+            Alongside coding, I am deeply interested in competitive gaming and YouTube content creation. My goal is to keep growing as a student, creator, and developer while building work that feels useful and meaningful.
+          </p>
+        </div>
+
+        <ul class="contact-list" id="contact">
+          <li>
+            <span class="label">Email</span>
+            <a class="value" href="mailto:armansayed41@email.com">armansayed41@email.com</a>
+          </li>
+          <li>
+            <span class="label">Phone</span>
+            <a class="value" href="tel:+91 7896183916">+91 7896183916</a>
+          </li>
+          <li>
+            <span class="label">Focus</span>
+            <span class="value">Web Development and Content Creation</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-header">
+        <h2>Education</h2>
+        <p>Building a strong technical base through practice and study.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Diploma in Computer Science and Technology</h3>
+          <p>First-year student focused on programming fundamentals, web development, and practical technical skills.</p>
+        </article>
+        <article class="timeline-item">
+          <h3>Current Learning Path</h3>
+          <p>HTML, CSS, JavaScript, responsive layouts, project building, and better problem-solving habits.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2>Skills</h2>
+        <p>Tools and habits I am developing through regular practice.</p>
+      </div>
+      <ul class="skills-grid">
+        <li class="skill-card">
+          <h3>HTML</h3>
+          <p>Clean page structure, sections, links, and readable content.</p>
+        </li>
+        <li class="skill-card">
+          <h3>CSS</h3>
+          <p>Responsive layouts, spacing, colors, and polished visual design.</p>
+        </li>
+        <li class="skill-card">
+          <h3>JavaScript</h3>
+          <p>Interactive basics, browser behavior, and beginner web logic.</p>
+        </li>
+        <li class="skill-card">
+          <h3>Content Creation</h3>
+          <p>Gaming videos, YouTube ideas, consistency, and audience growth.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p>Simple projects that show steady progress.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive portfolio page with a stronger intro, profile photo, skills, education, and contact details.</p>
+        </article>
+        <article class="project-card">
+          <h3>Mini Web Experiments</h3>
+          <p>Small HTML, CSS, and JavaScript practice projects for learning layout, styling, and interaction.</p>
+        </article>
+        <article class="project-card">
+          <h3>Gaming Channel Work</h3>
+          <p>Gameplay ideas, video planning, editing practice, and consistent improvement as a creator.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="achievements">
+      <div class="section-header">
+        <h2>Achievements</h2>
+        <p>Progress that comes from showing up regularly.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Started a Web Development Journey</h3>
+          <p>Learning the core building blocks of websites and turning practice into visible projects.</p>
+        </article>
+        <article class="timeline-item">
+          <h3>Growing as a Gaming Creator</h3>
+          <p>Balancing study, gaming, and YouTube content creation with discipline and curiosity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="hobbies">
+      <div class="section-header">
+        <h2>Hobbies</h2>
+        <p>The interests that keep me active, creative, and motivated.</p>
+      </div>
+      <ul class="hobbies-grid">
+        <li class="hobby-card">
+          <h3>Coding</h3>
+          <p>Learning by building and improving small ideas.</p>
+        </li>
+        <li class="hobby-card">
+          <h3>Gaming</h3>
+          <p>Competitive play, practice, and smarter strategies.</p>
+        </li>
+        <li class="hobby-card">
+          <h3>Video Creation</h3>
+          <p>Planning and sharing gameplay moments.</p>
+        </li>
+        <li class="hobby-card">
+          <h3>Reading</h3>
+          <p>Exploring new ideas and learning from others.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="page">
+      <p><strong>Sayed Arman</strong> - Computer Science and Technology Student</p>
+    </div>
+  </footer>
+</body>
+</html>
